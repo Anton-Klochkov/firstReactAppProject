@@ -1,0 +1,26 @@
+.nav {
+  grid-area: n;
+  background-color:#0d0d0d;
+  text-align: center;
+  padding-top: 20px;
+  text-transform: uppercase;
+  border-radius: 0 0 10px 10px;
+}
+
+.navbar {
+  padding-top: 10px;
+}
+
+.navbar .active{
+  color: red;
+}
+
+.navbarSetting {
+  padding-top: 100px;
+}
+
+.way {
+  text-decoration: none;
+  color: rgb(0, 15, 223);
+}
+
