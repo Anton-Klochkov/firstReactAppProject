@@ -15,15 +15,15 @@ import Dialogs from './components/Dialogs/Dialogs';
 
 
 
-const App = () => {
+const App = (props) => {
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
         <Header />
         <Navbar />
         <div className='app-wrapper-content'>
-          <Route path='/Profile' render={() => < Profile />} />
-          <Route path='/Messages' render={() => < Dialogs />} />
+          <Route path='/Profile' render={() => < Profile postData={props.postData} />} />
+          <Route path='/Messages' render={() => < Dialogs dialogsData={props.dialogsData} messagesData={props.messagesData} />} />
           <Route path='/Music' render={() => < Music />} />
           <Route path='/News' render={() => < News />} />
           <Route path='/Settings' render={() => < Settings />} />
