@@ -5,12 +5,16 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 
 const Profile = (props) => {
+
+
   return (
     <div className={classes.bg}>
         <ProfileInfo />
-        <MyPosts postData={props.postData}  />
+        <MyPosts profilePage={props.profilePage.props} 
+          newPostText= {props.profilePage.newPostText}
+          addPost = {props.addPost} 
+          updateNewPostText = {props.updateNewPostText}/>  
     </div>
   )
 }
-
 export default Profile;

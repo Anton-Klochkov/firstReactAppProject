@@ -5,7 +5,7 @@ import classes from './Friends.module.css';
 const Friends = () => {
   return (
     <div>
-      <a herf = "/friends" > Friends </a>
+      <a href = "/friends"> Friends </a>
     </div>
   )
 }

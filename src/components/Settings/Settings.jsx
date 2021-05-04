@@ -5,7 +5,7 @@ import classes from './Settings.module.css';
 const Settings = () => {
   return (
     <div>
-      <a herf = "/Settings"> Settings </a>
+      <a href = "/Settings"> Settings </a>
     </div>
   )
 }

@@ -1,0 +1,31 @@
+.activ_friends {
+  text-transform: none;
+  margin-top: 10px;
+}
+
+.best_activ_friend {
+  text-decoration: none;
+  color: rgb(10, 206, 231);
+  display: flex;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.best_friend .active {
+  color: gold;
+}
+
+.activ_friend_logo {
+  margin-left: 25px;
+}
+.active_friend_icon {
+  width: 55px;
+  height: 55px;
+  border-radius: 30px;
+}
+.active_friend_name {
+  width: 100px;
+  height: 25px;
+  align-self: center;
+}
+/* Navbar акк друзей */

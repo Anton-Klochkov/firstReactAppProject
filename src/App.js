@@ -8,7 +8,9 @@ import Profile from './components/Profile/Profile';
 import Music from './components/Music/Music';
 import News from './components/News/News';
 import Settings from './components/Settings/Settings';
-import Dialogs from './components/Dialogs/Dialogs';
+import Friends from './components/Friends/Friends';
+import Message from './components/Dialogs/Dialogs';
+import Messages from './components/Dialogs/Message/Message';
 
 
 
@@ -22,11 +24,37 @@ const App = (props) => {
         <Header />
         <Navbar />
         <div className='app-wrapper-content'>
-          <Route path='/Profile' render={() => < Profile postData={props.postData} />} />
-          <Route path='/Messages' render={() => < Dialogs dialogsData={props.dialogsData} messagesData={props.messagesData} />} />
+
+          
+          <Route path='/Profile' /* <-- content */
+           render={ () => < Profile /* <-- url */ 
+            profilePage={props.state.postData}
+            addPost={props.addPost}
+            updateNewPostText={props.updateNewPostText} />} />
+          
+          
+          <Route path='/Messages'
+           render={() => < Messages 
+           messagesData={props.dialogsPage.messagesData}
+           addMessage = {props.addMessage}
+           updateNewMessageText={props.updateNewMessageText} />} />
+          
+          
           <Route path='/Music' render={() => < Music />} />
+
+          
+          
           <Route path='/News' render={() => < News />} />
+
+          
+          
+          <Route path='/Friends'
+           render={() => < Friends state={props.state.sideBar} />} />
+
+          
+          
           <Route path='/Settings' render={() => < Settings />} />
+
         </div>
       </div>
     </BrowserRouter>
