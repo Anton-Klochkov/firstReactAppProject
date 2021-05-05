@@ -5,7 +5,7 @@ import classes from './News.module.css';
 const News = () => {
   return (
     <div>
-      <a herf = "/news"> News </a>
+      <a href = "/news"> News </a>
     </div>
   )
 }

@@ -5,7 +5,7 @@ import classes from './Music.module.css';
 const Music = () => {
   return (
     <div>
-      <a herf = "/music"> Music </a>
+      <a href = "/music"> Music </a>
     </div>
   )
 }
