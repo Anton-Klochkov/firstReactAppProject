@@ -1,8 +1,8 @@
 import React from 'react';
-import classes from './../Dialogs.module.css';
+import classes from '../../Dialogs.module.css';
 
 
-const Message = (props) => {
+const MessageInput = (props) => {
 
     let newMessage = React.createRef();
 
@@ -27,4 +27,4 @@ const Message = (props) => {
         </div>
     )
 }
-export default Message;
+export default MessageInput;

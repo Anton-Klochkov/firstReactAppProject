@@ -12,7 +12,7 @@ let state = {
         newPostText: 'it-kamasutra'
     },
   dialogsPage:{
-        dialogsData: [
+        dialogs: [
             { id: '1', name: 'Viktor' },
             { id: '2', name: 'Sveta' },
             { id: '3', name: 'Sasha' },
@@ -20,14 +20,14 @@ let state = {
             { id: '5', name: 'Valera' },
             { id: '6', name: 'Irina' }
           ],
-        messagesData: [
+        messages: [
             { id: '1', message: "We are you from" },
             { id: '2', message: "I'm from Russia" },
             { id: '3', message: "Go to steer" },
             { id: '4', message: "First react project" },
             { id: '5', message: "Go to react" },
           ],
-        newMessageText: 'new-text'
+        newMessageText: ''
     },
 
   sideBar:{
@@ -60,16 +60,16 @@ export let  updateNewPostText = (newText) => {
 
 
 //message
-export let addMessage = (chatMessage) => {
-  let newMessage ={
+export let sendMessage = () => {
+  let sendMessage ={
     id: 22,
-    message: state.dialogsPage.messagesData
+    message: state.dialogsPage.newMessageText
   };
-  state.dialogsPage.messagesData.push (newMessage);
+  state.dialogsPage.messages.push (sendMessage);
   state.dialogsPage.newMessageText = '';
   rerenderEntireTree(state);
 }          
-export let updateNewMessageText = (newText) => {
+export let updateSendMessageText = (newText) => {
   state.dialogsPage.newMessageText = newText;
   rerenderEntireTree(state);
 }
