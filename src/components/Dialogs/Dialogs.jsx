@@ -1,7 +1,8 @@
 import React from 'react';
-import classes from '../Dialogs.module.css';
-import DialogItem from '../Dialogs/DialogsItem/DialogsItem';
-import Message from '../Dialogs/Message/Message';
+import classes from './Dialogs.module.css';
+import DialogItem from './DialogsItem/DialogsItem';
+import Message from './Message/Message';
+import MessageInput from './Message/MessageInput/MessageInput'
 
 
 const Dialogs = (props) => {
@@ -22,12 +23,14 @@ const Dialogs = (props) => {
         <div className={classes.messages}>
           { messageElements }
         </div>
+
         <div className={classes.message}>
           <MessageInput
             newMessageText = {props.dialogsPage.newMessageText}
             updateSendMessageText ={props.updateSendMessageText}
             sendMessage = { props.sendMessage} />
         </div>
+        
     </div>
   )
 }
