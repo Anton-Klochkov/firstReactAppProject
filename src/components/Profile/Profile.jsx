@@ -10,7 +10,7 @@ const Profile = (props) => {
   return (
     <div className={classes.bg}>
         <ProfileInfo />
-        <MyPosts profilePage={props.profilePage.props} 
+        <MyPosts profilePage={props.profilePage} 
           newPostText= {props.profilePage.newPostText}
           addPost = {props.addPost} 
           updateNewPostText = {props.updateNewPostText}/>  

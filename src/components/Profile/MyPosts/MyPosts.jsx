@@ -7,13 +7,12 @@ const MyPosts = (props) => {
   
 
   let postsElements = 
-  props.profilePage.map ( profilePage => <Post massage={profilePage.message} likesCount={profilePage.likesCount} /> )
+  props.profilePage.postData.map ( posts => <Post message={posts.message} likesCount={posts.likesCount} /> )
 
   let newPostElement = React.createRef();
 
   let addPost = () => {
     props.addPost();
-    props.updateNewPostText('');
   }
 
   let onPostChange = () =>{
