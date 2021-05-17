@@ -27,8 +27,7 @@ const App = (props) => {
           <Route path='/Profile' /* <-- content */
            render={ () => < Profile /* <-- url */ 
             profilePage={props.state.profilePage}
-            addPost={props.addPost}
-            updateNewPostText={props.updateNewPostText} />} />
+            dispatch = {props.dispatch} />} />
           
           
           <Route path='/Messages'

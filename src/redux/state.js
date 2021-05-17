@@ -36,30 +36,35 @@ let store = {
         { id: '4', name: 'Dmitriy' },
       ]
     }
-    },
-    getState() {
+  },
+  _callSubscriber() {
+    console.log('State chnge');
+  },
+  getState() {
       return this._state
-    },
-    _callSubscriber() {
-      console.log('State chnge');
-    },
-    //post
-    addPost(postMessage) {
-    let newPost = {
-      id: 17,
-      message: this._state.profilePage.newPostText,
-      likesCount: 3
-    };
-      this._state.profilePage.postData.push (newPost);
-      this._state.profilePage.newPostText = '';
-      this._callSubscriber();
-    },
-    updateNewPostText(newText) {
-      this._state.profilePage.newPostText = newText;
-      this._callSubscriber();
+  },
+  subscribe(observer) {
+    this._callSubscriber = observer;
   },
 
-  //message
+//post
+  dispatch(action){
+    if (action.type === 'ADD-POST'){
+      let newPost = {
+        id: 17,
+        message: this._state.profilePage.newPostText,
+        likesCount: 3
+      };
+        this._state.profilePage.postData.push (newPost);
+        this._state.profilePage.newPostText = '';
+        this._callSubscriber();
+      }else if (action.type === 'UPDATE-NEW-POST-TEXT'){
+        this._state.profilePage.newPostText = action.newText;
+        this._callSubscriber();
+    }
+  },
+
+//message
   sendMessage() {
     let sendMessage ={
       id: 22,
@@ -72,12 +77,10 @@ let store = {
   updateSendMessageText(newText) {
     this._state.dialogsPage.newMessageText = newText;
     this._callSubscriber();
-  },
-
-
-  subscribe(observer) {
-    this._callSubscriber = observer;
   }
+
+
+
   
 
 }
