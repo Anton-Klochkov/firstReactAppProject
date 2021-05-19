@@ -40,15 +40,17 @@ let store = {
   _callSubscriber() {
     console.log('State chnge');
   },
-  getState() {
-      return this._state
+  getState() {  
+    return this._state
   },
   subscribe(observer) {
     this._callSubscriber = observer;
   },
 
-//post
+
+  //post
   dispatch(action){
+    debugger;
     if (action.type === 'ADD-POST'){
       let newPost = {
         id: 17,
@@ -57,32 +59,28 @@ let store = {
       };
         this._state.profilePage.postData.push (newPost);
         this._state.profilePage.newPostText = '';
-        this._callSubscriber();
-      }else if (action.type === 'UPDATE-NEW-POST-TEXT'){
+        this._callSubscriber(this._state);
+      } else if (action.type === 'UPDATE-NEW-POST-TEXT'){
         this._state.profilePage.newPostText = action.newText;
-        this._callSubscriber();
+        this._callSubscriber(this._state);
     }
   },
-
 //message
-  sendMessage() {
-    let sendMessage ={
-      id: 22,
-      message: this._state.dialogsPage.newMessageText
-    };
-    this._state.dialogsPage.messages.push (sendMessage);
-    this._state.dialogsPage.newMessageText = '';
-    this._callSubscriber();
-  },
-  updateSendMessageText(newText) {
-    this._state.dialogsPage.newMessageText = newText;
-    this._callSubscriber();
+  dispatch(action){
+    debugger;
+    if (action.type === 'SEND-MESSAGE'){
+      let sendMessage ={
+        id: 22,
+        message: this._state.dialogsPage.newMessageText
+      };
+      this._state.dialogsPage.messages.push (sendMessage);
+      this._state.dialogsPage.newMessageText = '';
+      this._callSubscriber(this._state);
+    } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT'){
+      this._state.dialogsPage.newMessageText = action.newMessage;
+      this._callSubscriber(this._state);
   }
-
-
-
-  
-
+  }
 }
 export default store;
 window.store = store;
