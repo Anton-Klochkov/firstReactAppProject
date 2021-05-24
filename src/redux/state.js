@@ -40,17 +40,17 @@ let store = {
   _callSubscriber() {
     console.log('State chnge');
   },
-  getState() {  
-    return this._state
+  getState() {
+      return this._state
   },
   subscribe(observer) {
     this._callSubscriber = observer;
   },
 
 
-  //post
+
+  //post and message
   dispatch(action){
-    debugger;
     if (action.type === 'ADD-POST'){
       let newPost = {
         id: 17,
@@ -63,24 +63,41 @@ let store = {
       } else if (action.type === 'UPDATE-NEW-POST-TEXT'){
         this._state.profilePage.newPostText = action.newText;
         this._callSubscriber(this._state);
-    }
-  },
-//message
-  dispatch(action){
-    debugger;
-    if (action.type === 'SEND-MESSAGE'){
-      let sendMessage ={
-        id: 22,
-        message: this._state.dialogsPage.newMessageText
-      };
-      this._state.dialogsPage.messages.push (sendMessage);
-      this._state.dialogsPage.newMessageText = '';
-      this._callSubscriber(this._state);
-    } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT'){
-      this._state.dialogsPage.newMessageText = action.newMessage;
-      this._callSubscriber(this._state);
-  }
+      } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT'){
+        this._state.dialogsPage.newMessageText = action.newMessage;
+        this._callSubscriber(this._state);
+      } else if (action.type === 'SEND-MESSAGE'){
+        let sendMessage ={
+          id: 22,
+          message: this._state.dialogsPage.newMessageText
+        };
+        this._state.dialogsPage.messages.push (sendMessage);
+        this._state.dialogsPage.newMessageText = '';
+        this._callSubscriber(this._state);
   }
 }
+}
+export const addPostActionCreator = () => {
+  const ADD_POST = 'ADD-POST';
+  return {
+    type: ADD_POST
+  }
+}
+export const updateNewPostTextActionCreator = (text) => {
+  return {
+    type: 'UPDATE-NEW-POST-TEXT', newText: text
+  }
+}
+export const sendMessageCreator = () => {
+  return {
+    type: 'SEND-MESSAGE'
+  }
+}
+export const updateNewMessageCreator = (text) => {
+  return {
+    type: 'UPDATE-NEW-MESSAGE-TEXT', newText: text
+  }
+}
+
 export default store;
 window.store = store;
